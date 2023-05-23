@@ -1,6 +1,15 @@
+.Barra{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items: center;
+}
 
 
-
-.Titulo{
+.logo{
     color: blueviolet;
+}
+
+.Categorias{
+    padding: 0;
 }

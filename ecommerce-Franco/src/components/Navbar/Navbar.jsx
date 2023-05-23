@@ -1,12 +1,11 @@
 import './Navbar.css'
-
 import CardWidget from '../CardWidget/CardWidget'
 
 const Navbar = () => {
     return (
         <header className='Barra'>
-            <h1 className="Titulo">KITA</h1>
-            <section>
+            <h1 className="logo">KITA</h1>
+            <section className='Categorias'>
                 <button>Deco</button>
                 <button>Gift Cards</button>
                 <button>Inspiraciones</button>
