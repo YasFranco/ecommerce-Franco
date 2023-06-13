@@ -1,15 +1,13 @@
-.Barra{
-    display: flex;
-    flex-direction:row;
-    justify-content:space-around;
-    align-items: center;
+.navbarBg{
+    background-color: black;
+    
 }
 
+.navbar {
+    --bs-navbar-color: #f8f9fa;
+}
+   
 
 .logo{
-    color: blueviolet;
-}
-
-.Categorias{
-    padding: 0;
+    width: 125px;
 }
