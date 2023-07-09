@@ -1,12 +1,19 @@
-import { TiShoppingCart } from 'react-icons/ti';
 
-const CardWidget = () => {
-    return(
-        <div>
+import { TiShoppingCart } from 'react-icons/ti';
+import { useCart } from '../../context/CartContext'
+
+
+
+
+const CartWidget = () => {
+    const { totalQuantity } = useCart()
+
+    return (
+        <div className='carrito'>
             <TiShoppingCart/>
-            0
+            {totalQuantity}
         </div>
     )
 }
 
-export default CardWidget
+export default CartWidget

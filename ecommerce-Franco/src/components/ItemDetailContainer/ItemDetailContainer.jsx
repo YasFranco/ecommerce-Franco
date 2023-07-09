@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { getProductById } from "../../AsyncMoke";
+// import { getProductById } from "../../AsyncMoke";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
+import { getDoc, doc } from 'firebase/firestore'
+import { db } from '../../services/firebase/firebaseConfig'
 
 const ItemDetailContainer = () =>{
 
@@ -9,15 +11,17 @@ const ItemDetailContainer = () =>{
 
     const {itemId} = useParams()
 
-    useEffect(()=>{
-        getProductById(itemId)
-            .then(response => {
-                setProduct(response)
+    useEffect(() => {
+        const productRef = doc(db, 'products', itemId)
+
+        getDoc(productRef)
+            .then(querySnapshot => {
+                const fields = querySnapshot.data()
+                const productAdapted = { id: querySnapshot.id, ...fields} 
+
+                setProduct(productAdapted)
             })
-            .catch(error => {
-                console.log(error)
-            })
-    },[itemId])
+    }, [itemId])
 
     return(
         <div>
@@ -27,3 +31,4 @@ const ItemDetailContainer = () =>{
 }
 
 export default ItemDetailContainer 
+
